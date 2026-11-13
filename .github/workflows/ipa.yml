@@ -1,0 +1,35 @@
+name: Gerar IPA para assinatura pessoal
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/ipa.yml'
+permissions:
+  contents: read
+jobs:
+  package:
+    runs-on: macos-15
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          persist-credentials: false
+      - name: Compilar e empacotar iPhone
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p artifacts staging/Payload
+          xcodebuild -project GIPTV.xcodeproj -scheme GIPTV -configuration Release -destination 'generic/platform=iOS' -derivedDataPath build-iphone CODE_SIGNING_ALLOWED=NO build 2>&1 | tee artifacts/build.log
+          cp -R build-iphone/Build/Products/Release-iphoneos/GIPTV.app staging/Payload/
+          /usr/libexec/PlistBuddy -c 'Print :CFBundleExecutable' staging/Payload/GIPTV.app/Info.plist
+          lipo -verify_arch arm64 staging/Payload/GIPTV.app/GIPTV
+          (cd staging && zip -qry ../artifacts/GIPTV-iPhone-sem-assinatura.ipa Payload)
+          unzip -t artifacts/GIPTV-iPhone-sem-assinatura.ipa
+          shasum -a 256 artifacts/GIPTV-iPhone-sem-assinatura.ipa > artifacts/SHA256.txt
+          printf 'GIPTV para iPhone - iOS 16 ou superior.\nIPA sem assinatura Apple. Nao instala ao tocar no arquivo.\nInstale pelo AltStore Classic usando a conta Apple do dono do iPhone.\nConta gratuita exige renovacao a cada 7 dias.\nGuia oficial Windows: https://faq.altstore.io/altstore-classic/how-to-install-altstore-windows\nNao testado em aparelho fisico. Use apenas conteudo autorizado.\n' > artifacts/LEIA-ME.txt
+      - uses: actions/upload-artifact@v4
+        with:
+          name: GIPTV-iPhone-para-AltStore
+          path: artifacts/
+          retention-days: 30
+          if-no-files-found: error
