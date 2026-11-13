@@ -1,2 +1,9 @@
-PASS: plists, shared Xcode scheme, all 26 object references, source paths, icon 1024 RGB.
-NOT RUN: Swift compilation, signing, simulator/device playback.
+GIPTV iOS — validação em 13/11/2026
+
+Compilação Xcode para iOS Simulator: SUCESSO.
+Compilação Release para iPhone sem assinatura: SUCESSO.
+Código validado: 66bf7e6ea23fb5e34c252ed9d5906ee7597c3d72.
+Resultado: https://github.com/jaykisonekerli-dot/GIPTV-iOS/actions/runs/43431517931
+
+Não foram realizados testes de reprodução em iPhone físico.
+Não foi gerado IPA assinado. A instalação exige assinatura e provisionamento Apple.
