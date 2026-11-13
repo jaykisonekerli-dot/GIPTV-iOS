@@ -1,0 +1,2 @@
+PASS: plists, shared Xcode scheme, all 26 object references, source paths, icon 1024 RGB.
+NOT RUN: Swift compilation, signing, simulator/device playback.

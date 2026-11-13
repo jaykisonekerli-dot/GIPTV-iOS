@@ -1,0 +1,11 @@
+build/
+build-simulator/
+build-iphone/
+artifacts/
+DerivedData/
+*.xcuserstate
+xcuserdata/
+.DS_Store
+*.p12
+*.mobileprovision
+.env

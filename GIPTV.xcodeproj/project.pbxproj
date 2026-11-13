@@ -1,0 +1,29 @@
+// !$*UTF8*$!
+{archiveVersion = 1; classes = {}; objectVersion = 56; objects = {
+B70EF8F287B988A45022836E = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "App.swift"; sourceTree = "<group>"; };
+C204E333CC9EB4C534DF9168 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data.swift"; sourceTree = "<group>"; };
+743E07C4C7A935E3D22100A9 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Playback.swift"; sourceTree = "<group>"; };
+795A02A63DC9C1E86758E98F = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Assets.xcassets"; sourceTree = "<group>"; };
+6D123AE8AB04EEE632CC6C18 = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PrivacyInfo.xcprivacy"; sourceTree = "<group>"; };
+9AC3B5AD93CBC0305C62F78F = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Info.plist"; sourceTree = "<group>"; };
+C3E0EEF853DEF9F3EB17A92C = {isa = PBXBuildFile; fileRef = B70EF8F287B988A45022836E; };
+EFA52DDFBC8F57C4AE2D1141 = {isa = PBXBuildFile; fileRef = C204E333CC9EB4C534DF9168; };
+6638737595EAC777A4283F7C = {isa = PBXBuildFile; fileRef = 743E07C4C7A935E3D22100A9; };
+6FE0BBEC37407380D400F491 = {isa = PBXBuildFile; fileRef = 795A02A63DC9C1E86758E98F; };
+414D458A4445833FCC3E9669 = {isa = PBXBuildFile; fileRef = 6D123AE8AB04EEE632CC6C18; };
+A8792157CB4F27FB949C035F = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GIPTV.app; sourceTree = BUILT_PRODUCTS_DIR; };
+E17E80AD8E2103CF3FC3FD96 = {isa = PBXGroup; children = (B70EF8F287B988A45022836E,C204E333CC9EB4C534DF9168,743E07C4C7A935E3D22100A9,795A02A63DC9C1E86758E98F,6D123AE8AB04EEE632CC6C18,9AC3B5AD93CBC0305C62F78F); path = GIPTV; sourceTree = "<group>"; };
+0A3E27B8CA818264D75C8D81 = {isa = PBXGroup; children = (A8792157CB4F27FB949C035F); name = Products; sourceTree = "<group>"; };
+4813494D137E1631BBA301D5 = {isa = PBXGroup; children = (E17E80AD8E2103CF3FC3FD96,0A3E27B8CA818264D75C8D81); sourceTree = "<group>"; };
+878A52FC5FF6A57D50B7B870 = {isa = PBXSourcesBuildPhase; buildActionMask = 2147483647; files = (C3E0EEF853DEF9F3EB17A92C,EFA52DDFBC8F57C4AE2D1141,6638737595EAC777A4283F7C); runOnlyForDeploymentPostprocessing = 0; };
+41D311A605520FC7B8B9A980 = {isa = PBXResourcesBuildPhase; buildActionMask = 2147483647; files = (6FE0BBEC37407380D400F491,414D458A4445833FCC3E9669); runOnlyForDeploymentPostprocessing = 0; };
+E2AA269EB967A8853A258BFA = {isa = PBXFrameworksBuildPhase; buildActionMask = 2147483647; files = (); runOnlyForDeploymentPostprocessing = 0; };
+73EBF6644258C120893E685D = {isa = XCBuildConfiguration; buildSettings = {SDKROOT = iphoneos; IPHONEOS_DEPLOYMENT_TARGET = 16.0; CLANG_ENABLE_MODULES = YES; SWIFT_VERSION = 5.0; }; name = Debug; };
+6C7EFF6369083C8E1F2B1994 = {isa = XCBuildConfiguration; buildSettings = {ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon; CODE_SIGN_STYLE = Automatic; DEVELOPMENT_TEAM = ""; GENERATE_INFOPLIST_FILE = NO; INFOPLIST_FILE = GIPTV/Info.plist; PRODUCT_BUNDLE_IDENTIFIER = com.jaykison.giptv.ios; PRODUCT_NAME = "$(TARGET_NAME)"; TARGETED_DEVICE_FAMILY = "1,2"; SUPPORTED_PLATFORMS = "iphoneos iphonesimulator"; SWIFT_VERSION = 5.0; IPHONEOS_DEPLOYMENT_TARGET = 16.0; LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks"; SWIFT_OPTIMIZATION_LEVEL = "-Onone";}; name = Debug; };
+0B0C687DF8B6B8DC790B519C = {isa = XCBuildConfiguration; buildSettings = {SDKROOT = iphoneos; IPHONEOS_DEPLOYMENT_TARGET = 16.0; CLANG_ENABLE_MODULES = YES; SWIFT_VERSION = 5.0; }; name = Release; };
+DD75E2CB1C510A828AC72D96 = {isa = XCBuildConfiguration; buildSettings = {ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon; CODE_SIGN_STYLE = Automatic; DEVELOPMENT_TEAM = ""; GENERATE_INFOPLIST_FILE = NO; INFOPLIST_FILE = GIPTV/Info.plist; PRODUCT_BUNDLE_IDENTIFIER = com.jaykison.giptv.ios; PRODUCT_NAME = "$(TARGET_NAME)"; TARGETED_DEVICE_FAMILY = "1,2"; SUPPORTED_PLATFORMS = "iphoneos iphonesimulator"; SWIFT_VERSION = 5.0; IPHONEOS_DEPLOYMENT_TARGET = 16.0; LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks"; SWIFT_OPTIMIZATION_LEVEL = "-O";}; name = Release; };
+76F8DEC3DFE0BDB465198890 = {isa = XCConfigurationList; buildConfigurations = (73EBF6644258C120893E685D,0B0C687DF8B6B8DC790B519C); defaultConfigurationIsVisible = 0; defaultConfigurationName = Release; };
+1B672BF3DA427763BF644BE3 = {isa = XCConfigurationList; buildConfigurations = (6C7EFF6369083C8E1F2B1994,DD75E2CB1C510A828AC72D96); defaultConfigurationIsVisible = 0; defaultConfigurationName = Release; };
+34A04005BCAF206EEC990BD9 = {isa = PBXNativeTarget; buildConfigurationList = 1B672BF3DA427763BF644BE3; buildPhases = (878A52FC5FF6A57D50B7B870,E2AA269EB967A8853A258BFA,41D311A605520FC7B8B9A980); buildRules = (); dependencies = (); name = GIPTV; productName = GIPTV; productReference = A8792157CB4F27FB949C035F; productType = "com.apple.product-type.application"; };
+244210E48437B6556980A702 = {isa = PBXProject; attributes = {LastUpgradeCheck = 1500; }; buildConfigurationList = 76F8DEC3DFE0BDB465198890; compatibilityVersion = "Xcode 14.0"; developmentRegion = pt-BR; hasScannedForEncodings = 0; knownRegions = ("pt-BR",en,Base); mainGroup = 4813494D137E1631BBA301D5; productRefGroup = 0A3E27B8CA818264D75C8D81; projectDirPath = ""; projectRoot = ""; targets = (34A04005BCAF206EEC990BD9); };
+}; rootObject = 244210E48437B6556980A702; }

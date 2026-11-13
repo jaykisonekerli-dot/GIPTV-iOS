@@ -1,0 +1,49 @@
+name: Compilar GIPTV iOS (sem assinatura)
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: giptv-ios-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: macos-15
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          persist-credentials: false
+      - name: Informar Xcode disponível
+        run: xcodebuild -version
+      - name: Compilar para simulador
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p artifacts
+          xcodebuild -project GIPTV.xcodeproj -scheme GIPTV \
+            -configuration Debug -destination 'generic/platform=iOS Simulator' \
+            -derivedDataPath build-simulator CODE_SIGNING_ALLOWED=NO \
+            build 2>&1 | tee artifacts/simulator.log
+          ditto -c -k --keepParent build-simulator/Build/Products/Debug-iphonesimulator/GIPTV.app artifacts/GIPTV-simulador.zip
+      - name: Conferir compilação para iPhone (sem assinatura)
+        shell: bash
+        run: |
+          set -euo pipefail
+          xcodebuild -project GIPTV.xcodeproj -scheme GIPTV \
+            -configuration Release -destination 'generic/platform=iOS' \
+            -derivedDataPath build-iphone CODE_SIGNING_ALLOWED=NO \
+            build 2>&1 | tee artifacts/iphone-sem-assinatura.log
+          printf 'Esta compilação não possui assinatura Apple. Não é um instalador para iPhone.\n' > artifacts/LEIA-ME.txt
+      - name: Disponibilizar resultado e logs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: GIPTV-compilacao-sem-assinatura
+          path: artifacts/
+          retention-days: 3
+          if-no-files-found: warn
