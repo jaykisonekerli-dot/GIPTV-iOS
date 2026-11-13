@@ -39,7 +39,7 @@ import AVFoundation
                     guard let self, !self.stopped, self.player.currentItem === item else { return }
                     if item.status == .readyToPlay {
                         self.message = ""
-                        let saved = media.kind == .live ? 0 : model.data.progress[media.id] ?? 0
+                        let saved = self.media.kind == .live ? 0 : model.data.progress[self.media.id] ?? 0
                         let duration = item.duration.seconds
                         if saved > 0 && (!duration.isFinite || saved < duration - 1) {
                             self.player.seek(to: CMTime(seconds: saved, preferredTimescale: 600)) { [weak self] _ in
