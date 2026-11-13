@@ -22,7 +22,7 @@ jobs:
           xcodebuild -project GIPTV.xcodeproj -scheme GIPTV -configuration Release -destination 'generic/platform=iOS' -derivedDataPath build-iphone CODE_SIGNING_ALLOWED=NO build 2>&1 | tee artifacts/build.log
           cp -R build-iphone/Build/Products/Release-iphoneos/GIPTV.app staging/Payload/
           /usr/libexec/PlistBuddy -c 'Print :CFBundleExecutable' staging/Payload/GIPTV.app/Info.plist
-          lipo -verify_arch arm64 staging/Payload/GIPTV.app/GIPTV
+          lipo staging/Payload/GIPTV.app/GIPTV -verify_arch arm64
           (cd staging && zip -qry ../artifacts/GIPTV-iPhone-sem-assinatura.ipa Payload)
           unzip -t artifacts/GIPTV-iPhone-sem-assinatura.ipa
           shasum -a 256 artifacts/GIPTV-iPhone-sem-assinatura.ipa > artifacts/SHA256.txt
